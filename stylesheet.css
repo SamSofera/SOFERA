@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 12% 100px;
+    position: relative;
+    overflow: hidden;
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.1) 20%,
+            rgba(0, 0, 0, 0.85) 100%
+        ),
+        url("images/scenery.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+header::before {
+    content: "";
+    width: 70px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin-bottom: 22px;
+}
+
+header h1 {
+    max-width: 1000px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(60px, 9vw, 120px);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+}
+
+header p {
+    margin-top: 28px;
+    max-width: 430px;
+    font-family: "Courier New", monospace !important;
+    font-size: 13px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+    position: fixed;
+    top: 50%;
+    right: 45px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    padding-left: 20px;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    transition: 0.35s ease;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    left: -21px;
+    top: 50%;
+    width: 1px;
+    height: 0;
+    background: white;
+    transform: translateY(-50%);
+    transition: 0.35s ease;
+}
+
+nav a:hover {
+    color: white;
+    padding-left: 7px;
+}
+
+nav a:hover::before {
+    height: 18px;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 12%;
+    background:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("images/intro.jpg");
+    background-size: cover;
+    background-position: center;
+    scroll-margin-top: 20px;
+}
+
+#intro {
+    max-width: 650px;
+}
+
+#intro::before {
+    content: "01 / INTRODUCTION";
+    display: block;
+    margin-bottom: 25px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+#intro h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 90px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+#intro p {
+    max-width: 580px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+article {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 12%;
+    overflow: hidden;
+    scroll-margin-top: 0;
+}
+
+article figure {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 0;
+}
+
+article figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.3) 55%,
+            rgba(0, 0, 0, 0.15) 100%
+        ),
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85) 0%,
+            transparent 50%
+        );
+}
+
+article img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8);
+    transition: transform 1.6s ease, filter 1.6s ease;
+}
+
+article:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+article h2 {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8vw, 110px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.65);
+}
+
+article h2::before {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.85);
+    margin-bottom: 22px;
+}
+
+article p {
+    position: relative;
+    z-index: 2;
+    max-width: 570px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.youtube-video {
+    position: relative;
+    z-index: 2;
+    width: 420px;
+    max-width: 100%;
+    height: 236px;
+    margin-top: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    opacity: 0.95;
+    transition: 0.4s ease;
+}
+
+.youtube-video:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+figcaption {
+    position: absolute;
+    z-index: 3;
+    top: 40px;
+    left: 12%;
+    max-width: 320px;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+footer {
+    position: relative;
+    background: #070707;
+    padding: 70px 12%;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer a {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+footer p {
+    margin: 10px 0;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    header {
+        min-height: 650px;
+        padding: 0 8% 70px;
+    }
+
+    header h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+    }
+
+    header p {
+        font-size: 12px;
+    }
+
+    nav {
+        top: 25px;
+        right: 20px;
+        transform: none;
+    }
+
+    nav ul {
+        gap: 8px;
+        padding-left: 12px;
+    }
+
+    nav a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    nav a::before {
+        left: -13px;
+    }
+
+    main {
+        padding: 100px 8%;
+    }
+
+    #intro h2 {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    #intro p {
+        font-size: 13px;
+    }
+
+    article {
+        min-height: 100vh;
+        padding: 100px 8% 70px;
+        justify-content: flex-end;
+    }
+
+    article h2 {
+        font-size: 58px;
+        letter-spacing: -3px;
+        margin-bottom: 20px;
+    }
+
+    article p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .youtube-video {
+        width: 100%;
+        height: 200px;
+        margin-top: 18px;
+    }
+
+    figcaption {
+        left: 8%;
+        top: 25px;
+        max-width: 250px;
+        font-size: 8px;
+    }
+
+    footer {
+        padding: 50px 8%;
+    }
+}
